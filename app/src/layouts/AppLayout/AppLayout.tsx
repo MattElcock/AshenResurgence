@@ -5,34 +5,30 @@ type AppLayoutProps = {
   header: ReactNode;
   nav: ReactNode;
   children: ReactNode;
-  footer: ReactNode;
 };
 
-const AppLayout = ({ header, nav, children, footer }: AppLayoutProps) => {
+const AppLayout = ({ header, nav, children }: AppLayoutProps) => {
   const templateAreas = `
         "header header"
         "nav main"
-        "nav footer"
+        "nav main"
     `;
 
   return (
     <Grid
       templateAreas={templateAreas}
       gridTemplateRows="auto 1fr auto"
-      gridTemplateColumns="1fr 4fr"
+      gridTemplateColumns="10rem auto"
       h="100vh"
     >
-      <GridItem area="header" bg="gray.900">
+      <GridItem area="header" bg="blackAlpha.900">
         {header}
       </GridItem>
-      <GridItem area="nav" bg="gray.700">
+      <GridItem area="nav" bg="gray.900">
         {nav}
       </GridItem>
-      <GridItem area="main" bg="gray.600">
+      <GridItem area="main" bg="gray.800">
         {children}
-      </GridItem>
-      <GridItem area="footer" bg="gray.600">
-        {footer}
       </GridItem>
     </Grid>
   );
